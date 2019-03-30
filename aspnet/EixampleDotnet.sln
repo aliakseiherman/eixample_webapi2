@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EixampleDotnet.Core", "Eixa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EixampleDotnet.EntityFramework", "EixampleDotnet.EntityFramework\EixampleDotnet.EntityFramework.csproj", "{30F1B675-2A64-4BBE-A5D7-67F3B1069308}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{DF9A1415-75AE-40C7-B816-04AF36F33884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EixampleDotnet.Tests.Integration", "EixampleDotnet.Tests.Integration\EixampleDotnet.Tests.Integration.csproj", "{783F9085-F543-4E84-BF61-D972DABA3F5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{30F1B675-2A64-4BBE-A5D7-67F3B1069308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30F1B675-2A64-4BBE-A5D7-67F3B1069308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30F1B675-2A64-4BBE-A5D7-67F3B1069308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{783F9085-F543-4E84-BF61-D972DABA3F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{783F9085-F543-4E84-BF61-D972DABA3F5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{783F9085-F543-4E84-BF61-D972DABA3F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{783F9085-F543-4E84-BF61-D972DABA3F5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{783F9085-F543-4E84-BF61-D972DABA3F5A} = {DF9A1415-75AE-40C7-B816-04AF36F33884}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4468286-A742-4625-9F3B-06391ED4D00E}
