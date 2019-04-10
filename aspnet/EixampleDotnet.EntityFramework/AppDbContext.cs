@@ -59,7 +59,7 @@ namespace EixampleDotnet.EntityFramework
 
         private void AuditEntities()
         {
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
 
             foreach (var entity in ChangeTracker.Entries<IHasCreationTime>().Where(p => p.State == EntityState.Added).Select(p => p.Entity))
             {
