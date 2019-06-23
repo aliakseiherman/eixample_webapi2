@@ -6,25 +6,24 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from "@angular/forms";
 import { DialogComponent } from "@shared/components/dialog/dialog.component";
 import { Dialog } from "@shared/services/dialog/dialog.service";
-import { NgNotifyComponent } from "@shared/components/ng-notify/ng-notify.component";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        
     ],
     declarations: [
         DialogComponent,
-        NgNotifyComponent
     ],
     exports: [
         DialogComponent,
-        NgNotifyComponent
     ],
     entryComponents: [
         DialogComponent,
-        NgNotifyComponent
     ],
     providers: [
     ],

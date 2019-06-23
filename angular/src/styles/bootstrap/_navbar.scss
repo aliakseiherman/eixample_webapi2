@@ -164,7 +164,7 @@
 
           .dropdown-menu-right {
             right: 0;
-            left: -150px !important; // Reset the default from `.dropdown-menu`
+            left: auto; // Reset the default from `.dropdown-menu`
           }
 
           .nav-link {

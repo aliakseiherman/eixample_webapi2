@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserData } from '@shared/services/user/user-data.service';
+import { AppConsts } from '@shared/AppConsts';
 
 @Component({
     selector: 'app-header',
@@ -51,7 +52,7 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('token');
+        localStorage.removeItem(AppConsts.auth.token);
     }
 
     changeLang(language: string) {

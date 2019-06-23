@@ -1,7 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
-import Vuex from "vuex";
 import VueRouter from "vue-router";
 import App from "./App";
 
@@ -18,7 +17,13 @@ import MaterialDashboard from "./material-dashboard";
 
 import Chartist from "chartist";
 
+import { store } from './store/store'
+
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/index.css';
+
 const axios = require('axios');
+import http from "./axios-helper/http";
 
 // configure router
 const router = new VueRouter({
@@ -26,32 +31,30 @@ const router = new VueRouter({
   linkExactActiveClass: "nav-item active"
 });
 
-
 Vue.prototype.$Chartist = Chartist;
+Vue.prototype.$http = axios.create();
 
 Vue.use(VueRouter);
 Vue.use(MaterialDashboard);
 Vue.use(GlobalComponents);
 Vue.use(GlobalDirectives);
 Vue.use(Notifications);
-Vue.use(Vuex);
+Vue.use(VueToast);
 
-
-axios.get('http://localhost:8080/api/Session/GetCurrentLoginDetails', {
-  headers: {
-    Authorization: "Bearer " + localStorage.getItem("token")
-  }
-})
+http.get('Session/GetCurrentLoginDetails')
   .then(function (response) {
+
+    store.commit("setUser", response.data.user);
+    store.commit("setTenant", response.data.tenant);
+
     /* eslint-disable no-new */
     new Vue({
       el: "#app",
+      store,
       render: h => h(App),
       router,
       data: {
-        Chartist: Chartist,
-        user: response.data.user,
-        tenant: response.data.tenant
+        Chartist: Chartist
       }
     });
   });

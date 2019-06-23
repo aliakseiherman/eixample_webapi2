@@ -1,7 +1,8 @@
-import { NgModule, APP_INITIALIZER, Injector } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AppComponent } from '@app/app.component';
 import { AppRoutingModule } from '@app/app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SessionService } from '@shared/session/session.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -10,8 +11,8 @@ import { ExcerptFilter } from '@shared/pipes/excerpt.filter';
 import { SharedService } from '@shared/services/shared-service/shared.service';
 import { OrderByPipe } from '@shared/pipes/orderby.pipe';
 import { ErrorHandlerInterceptor } from '@shared/interceptors/error-handler-interceptor';
-import { UserData } from '@shared/services/user/user-data.service';
 import { UserDataResolver } from './shared/resolvers/user-data-resolver';
+import { UserData } from '@shared/services/user/user-data.service';
 
 @NgModule({
   declarations: [
@@ -29,11 +30,8 @@ import { UserDataResolver } from './shared/resolvers/user-data-resolver';
     ReactiveFormsModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ErrorHandlerInterceptor,
-      multi: true
-    },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true },
+    SessionService,
     SharedService,
     UserData,
     UserDataResolver
@@ -41,5 +39,4 @@ import { UserDataResolver } from './shared/resolvers/user-data-resolver';
   bootstrap: [AppComponent],
   entryComponents: []
 })
-export class AppModule {
-}
+export class AppModule { }

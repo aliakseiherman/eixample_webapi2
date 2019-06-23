@@ -30,17 +30,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
 
             var result = JSON.parse(this.result as string);
 
-            if (result['ExceptionMessage'] !== undefined) {
-                toastr.error(result['ExceptionMessage'], 'Error');
-            } else {
-                if (result['Message'] !== undefined) {
-                    toastr.warning(result['Message'], 'Warning');
-                } else {
-                    toastr.info(this.result as string, 'Something else');
-                }
-
-            }
-
+            toastr.error(result.error, 'Warning!');
         };
 
         reader.readAsText(error['error']);
