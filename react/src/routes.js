@@ -1,5 +1,7 @@
 // @material-ui/icons
 import Demo from "views/Demo/Demo.jsx";
+import UserProfile from "views/UserProfile/UserProfile.jsx";
+import Person from "@material-ui/icons/Person";
 
 const dashboardRoutes = [
   {
@@ -8,7 +10,17 @@ const dashboardRoutes = [
     rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: Demo,
-    layout: "/admin"
+    layout: "/app",
+    inSidebar: true
+  },
+  {
+    path: "/user",
+    name: "User Profile",
+    rtlName: "ملف تعريفي للمستخدم",
+    icon: Person,
+    component: UserProfile,
+    layout: "/app",
+    inSidebar: false
   },
 ];
 

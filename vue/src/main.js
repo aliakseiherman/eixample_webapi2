@@ -23,7 +23,7 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
 
 const axios = require('axios');
-import http from "./axios-helper/http";
+import http from "./helpers/axios-helper";
 
 // configure router
 const router = new VueRouter({
